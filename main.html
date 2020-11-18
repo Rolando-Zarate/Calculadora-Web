@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta user-scalable = 0>
+<style>
+body{background-color:white;}
+.entrycss{width:272px; height:60px; font-size:30px; position:absolute; left:10; bottom:376px; border-width:0; background-color:blue; color:white; text-align:right;}
+.box{position:absolute; left:450px; border-style:solid; border-width:2; bottom:120px; background-color:#00008B;}
+.buttons{height:70px; width:70px; font-size:20px; border-width:0; color:white; background-color:blue;}
+</style>
+</head>
+<body>
+<div class="box">
+<br></br>
+<form>
+<br></br>
+<input id="entry" class="entrycss"></input>
+<br></br>
+<button type="button" class="buttons" onClick="num(1)">1</button>
+<button type="button" class="buttons" onClick="num(2)">2</button>
+<button type="button" class="buttons" onClick="num(3)">3</button>
+<button type="button" class="buttons" onClick="equal()">=</button>
+<br></br>
+<button type="button" class="buttons" onClick="num(4)">4</button>
+<button type="button" class="buttons" onClick="num(5)">5</button>
+<button type="button" class="buttons" onClick="num(6)">6</button>
+<button type="button" class="buttons" onClick="deleteValue()">AC</button>
+<br></br>
+<button type="button" class="buttons" onClick="num(7)">7</button>
+<button type="button" class="buttons" onClick="num(8)">8</button>
+<button type="button" class="buttons" onClick="num(9)">9</button>
+<button type="button" class="buttons" onClick="num('/')">/</button>
+<br></br>
+<button type="button" class="buttons" onClick="num(0)">0</button>
+<button type="button" class="buttons" onClick="num('+')">+</button>
+<button type="button" class="buttons" onClick="num('-')">-</button>
+<button type="button" class="buttons" onClick="num('*')">X</button>
+</form>
+</div>
+<script>
+var entry = document.getElementById("entry");
+entry.value = '';
+var numbers = [];
+function num(numberFor){
+numbers.pop()
+numbers.push(numberFor);
+window.entry.value += numbers;
+}
+function equal(){
+try{
+var toAnalize = eval(entry.value);
+if (entry.value === ""){
+alert("Syntax Error");
+}
+else{
+entry.value = '';
+window.entry.value = toAnalize;
+}
+}
+catch{
+alert("Syntax Error");
+}
+} 
+function deleteValue(){
+window.entry.value = '';
+}
+</script>
+</body>
+</html>
